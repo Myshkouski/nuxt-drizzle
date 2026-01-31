@@ -28,5 +28,5 @@ jobs:
     - name: Build packages
       run: bun run build
 
-    - name: Version and publish
-      run: bun publish
+    - name: Publish
+      run: bunx npm publish
