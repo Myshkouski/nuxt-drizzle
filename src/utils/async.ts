@@ -7,7 +7,11 @@ async function* generateAsync<T, U>(iterable: Iterable<T>, cb: (value: T, index:
 
 export async function mapAsync<T, U>(iterable: Iterable<T>, cb: (value: T, index: number) => Promise<U>) {
   const generator = generateAsync(iterable, cb)
-  return await Array.fromAsync(generator)
+  const items: U[] = []
+  for await (const item of generator) {
+    items.push(item)
+  }
+  return items
 }
 
 export async function runParallel<
