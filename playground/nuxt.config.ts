@@ -2,8 +2,6 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/devtools',
     '@nuxt/ui',
-    // 'nuxt-drizzle',
-    '../src/module',
   ],
   devtools: {
     enabled: true,
