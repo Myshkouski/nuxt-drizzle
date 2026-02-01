@@ -54,6 +54,7 @@
     "eslint": "^9.39.2",
     "nuxt": "^4.3.0",
     "typescript": "^5.9.3",
+    "unstorage": "^1.17.4",
     "vitest": "^3.2.4",
     "vue-tsc": "^3.2.4"
   },
