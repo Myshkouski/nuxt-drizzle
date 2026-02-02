@@ -6,6 +6,10 @@ declare module 'nitropack/types' {
   }
 }
 
+declare module '#nuxt-drizzle/virtual/datasources' {
+  export type { DrizzleDatasources };
+}
+
 declare module 'h3' {
   interface H3EventContext {
     drizzle: DrizzleDatasources
