@@ -8,6 +8,12 @@ Nuxt module for automating Drizzle ORM setup with support for multiple datasourc
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
 
+## Try it Online
+
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Myshkouski/nuxt-drizzle)
+
+Open the playground in Stackblitz to try Nuxt Drizzle without any local setup.
+
 ## Features
 
 - 🚅 **Multiple Datasources** - Support for multiple named database connections
