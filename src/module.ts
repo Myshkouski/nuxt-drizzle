@@ -78,7 +78,7 @@ export default defineNuxtModule<ModuleOptions>().with({
           logger,
           resolver,
           configPattern: moduleOptions.configPattern,
-          datasource: getDatasourceOptions(nuxt, moduleOptions.datasource),
+          datasource: getDatasourceOptions(nuxt.options, moduleOptions.datasource),
         })
 
     addServerTemplate({
