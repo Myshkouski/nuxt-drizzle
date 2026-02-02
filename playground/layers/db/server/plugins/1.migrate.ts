@@ -1,11 +1,11 @@
 import { consola } from 'consola'
 
-import type { Datasources } from '#nuxt-drizzle/virtual/datasources'
+import type { DrizzleDatasources } from '#nuxt-drizzle/virtual/datasources'
 
 export default defineNitroPlugin((nitro) => {
   nitro.hooks.hookOnce('drizzle:created', async (datasources) => {
     for (const [name, datasource] of Object.entries(datasources)) {
-      const migrations = await useDrizzleMigrations(name as keyof Datasources)
+      const migrations = await useDrizzleMigrations(name as keyof DrizzleDatasources)
       if (!migrations) {
         consola.info(`Found no migrations for ${JSON.stringify(name)} datasource`)
         continue
@@ -41,6 +41,6 @@ export default defineNitroPlugin((nitro) => {
 
 declare module 'nitropack/types' {
   interface NitroRuntimeHooks {
-    'drizzle:migrated': (datasources: Datasources) => void
+    'drizzle:migrated': (datasources: DrizzleDatasources) => void
   }
 }
