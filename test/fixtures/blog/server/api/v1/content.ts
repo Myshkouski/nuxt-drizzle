@@ -4,6 +4,6 @@ export default defineEventHandler(async (event) => {
   const comments = await db.select().from(schema.comments).limit(10)
   return {
     posts,
-    comments
+    comments,
   }
 })

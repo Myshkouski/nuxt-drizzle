@@ -14,7 +14,7 @@ export default defineNitroPlugin((nitro) => {
         continue
       }
 
-      consola.info(`Running migrations:`, colorize("greenBright", name))
+      consola.info(`Running migrations:`, colorize('greenBright', name))
 
       for await (const { id, query } of migrations) {
         const statements = query.split(STATEMENT_BREAKPOINT)
@@ -22,8 +22,9 @@ export default defineNitroPlugin((nitro) => {
           for (const statement of statements) {
             await datasource.db.run(statement)
           }
-        } catch (cause) {
-          consola.warn(`Migrations rolled back:`, colorize("greenBright", name))
+        }
+        catch (cause) {
+          consola.warn(`Migrations rolled back:`, colorize('greenBright', name))
 
           throw createError({
             fatal: true,
@@ -37,7 +38,7 @@ export default defineNitroPlugin((nitro) => {
         }
       }
 
-      consola.success(`Migrations completed` )
+      consola.success(`Migrations completed`)
     }
 
     nitro.hooks.callHook('drizzle:migrated', datasources)

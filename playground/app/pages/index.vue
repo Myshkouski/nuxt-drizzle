@@ -1,19 +1,28 @@
 <template>
   <UContainer>
-     <div class="space-y-4">
+    <div class="space-y-4">
       <div>
         <UHeader title="Authors" />
-        <UTable :data="authors" class="flex-1 border border-secondary rounded-xl" />
+        <UTable
+          :data="authors"
+          class="flex-1 border border-secondary rounded-xl"
+        />
       </div>
 
       <div>
         <UHeader title="Posts" />
-        <UTable :data="posts" class="flex-1 border border-secondary rounded-xl" />
+        <UTable
+          :data="posts"
+          class="flex-1 border border-secondary rounded-xl"
+        />
       </div>
 
       <div>
         <UHeader title="Comments" />
-        <UTable :data="comments" class="flex-1 border border-secondary rounded-xl" />
+        <UTable
+          :data="comments"
+          class="flex-1 border border-secondary rounded-xl"
+        />
       </div>
     </div>
   </UContainer>

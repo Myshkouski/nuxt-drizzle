@@ -1,8 +1,8 @@
 import { type H3Event, createError } from 'h3'
-import { 
-  datasourceFactories, 
-  type DrizzleDatasourceName, 
-  type NamedDrizzleDatasourceFactory
+import {
+  datasourceFactories,
+  type DrizzleDatasourceName,
+  type NamedDrizzleDatasourceFactory,
 } from '#nuxt-drizzle/virtual/datasources'
 import { useStorage } from 'nitropack/runtime'
 import type { Storage } from 'unstorage'
@@ -39,7 +39,6 @@ export async function createDatasources<
       })
     }
 
-    // @ts-ignore
     datasources[name] = datasource
   }
   return datasources
@@ -61,8 +60,8 @@ async function createDrizzleDatasource<
 >(name: TName, config: TConfig) {
   const { createDb, schema } = datasourceFactories[name]! satisfies NamedDrizzleDatasourceFactory<TName>
   const datasource: NamedDrizzleDatasource<TName> = {
-    db: await createDb(config, schema), 
-    schema
+    db: await createDb(config, schema),
+    schema,
   }
   return datasource
 }

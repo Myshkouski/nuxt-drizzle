@@ -7,7 +7,7 @@ declare module 'nitropack/types' {
 }
 
 declare module '#nuxt-drizzle/virtual/datasources' {
-  export type { DrizzleDatasources };
+  export type { DrizzleDatasources }
 }
 
 declare module 'h3' {

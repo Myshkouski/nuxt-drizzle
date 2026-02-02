@@ -3,6 +3,6 @@ export default defineNuxtConfig({
     '../src/module',
   ],
   drizzle: {
-    baseDir: "#layers/db/server/drizzle"
-  }
+    baseDir: '#layers/db/server/drizzle',
+  },
 })

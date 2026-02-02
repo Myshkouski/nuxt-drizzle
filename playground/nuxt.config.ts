@@ -28,6 +28,6 @@ export default defineNuxtConfig({
       users: {
         connector: 'sqlite',
       },
-    }
+    },
   },
 })

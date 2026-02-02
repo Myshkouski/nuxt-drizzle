@@ -16,7 +16,8 @@ export default defineNitroPlugin((nitro) => {
           for (const statement of statements) {
             await datasource.db.run(statement)
           }
-        } catch (cause) {
+        }
+        catch (cause) {
           throw createError({
             fatal: true,
             message: `Migrations for ${JSON.stringify(name)} rolled back`,

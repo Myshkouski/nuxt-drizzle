@@ -1,7 +1,7 @@
 import type { ModuleContext } from '../context'
 import type { ServerAssetDir } from 'nitropack/types'
 import type { ConnectorName } from 'db0'
-import type { Nuxt, NuxtOptions } from '@nuxt/schema'
+import type { NuxtOptions } from '@nuxt/schema'
 
 const SERVER_ASSETS_BASE = 'drizzle:migrations' as const
 

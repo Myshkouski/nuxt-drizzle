@@ -7,8 +7,8 @@ export async function typeDeclarations(context: ModuleContext) {
 
   return stripIndent(/* ts */`
     type DrizzleDatasourceName = ${
-      datasources.length > 0  
-    ? JSON.stringify(datasources.map(datasourceModule => datasourceModule.name)) + '[number]'
+      datasources.length > 0
+        ? JSON.stringify(datasources.map(datasourceModule => datasourceModule.name)) + '[number]'
         : 'string'
     };
 
@@ -23,13 +23,13 @@ export async function typeDeclarations(context: ModuleContext) {
     type NamedDrizzleDatasourceFactory<TName extends DrizzleDatasourceName> =
       ${
         datasources.map(({ name, imports }) => {
-          return stripIndent(/*ts*/`
+          return stripIndent(/* ts */`
             TName extends '${name}'
               ? DrizzleDatasourceFactory<
                   typeof import('${imports.connector}').default<${schemaType(imports.schema)}>, 
                   ${schemaType(imports.schema)}
                 >
-              :`
+              :`,
           )
         }).join('')
       }
@@ -53,8 +53,8 @@ export async function typeDeclarations(context: ModuleContext) {
 }
 
 function schemaType(imports: string[]) {
-  const importedTypes = imports.map((id) => `& typeof import('${id}')`).join(' ')
-  return /*ts*/`{} ${importedTypes}`
+  const importedTypes = imports.map(id => `& typeof import('${id}')`).join(' ')
+  return /* ts */`{} ${importedTypes}`
 }
 
 export async function runtime(context: ModuleContext) {

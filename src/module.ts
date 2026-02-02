@@ -39,7 +39,7 @@ export default defineNuxtModule<ModuleOptions>().with({
 
   async defaults(nuxt) {
     return {
-      baseDir: resolver.resolve(nuxt.options.serverDir, "drizzle"),
+      baseDir: resolver.resolve(nuxt.options.serverDir, 'drizzle'),
       configPattern: [
         '*/drizzle.config.*',
         '*/drizzle-*.config.*',
@@ -70,7 +70,7 @@ export default defineNuxtModule<ModuleOptions>().with({
 
     const context: ModuleContext = nuxt.options.rootDir == await resolver.resolvePath('..', { type: 'dir' })
       ? createStubModuleContext({
-          logger
+          logger,
         })
       : createModuleContext({
           cwd: process.cwd(),

@@ -15,7 +15,7 @@ export interface LoggerOptions {
   logger?: ConsolaInstance
 }
 
-export interface StubModuleContextOptions extends LoggerOptions {}
+export type StubModuleContextOptions = LoggerOptions & {}
 
 class StubModuleContext implements ModuleContext {
   readonly #options: StubModuleContextOptions

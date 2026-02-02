@@ -13,6 +13,6 @@ export default defineDrizzleDb(<
   return drizzle(client, { schema })
 })
 
-type Options = PrimitiveProps<PostgresOptions<{}>> & {
+type Options = PrimitiveProps<PostgresOptions<Record<string, createPostgres.PostgresType>>> & {
   url?: string
 }
