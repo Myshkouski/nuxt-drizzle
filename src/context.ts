@@ -19,9 +19,11 @@ export type StubModuleContextOptions = LoggerOptions & {}
 
 class StubModuleContext implements ModuleContext {
   readonly #options: StubModuleContextOptions
+
   constructor(options: StubModuleContextOptions) {
     this.#options = options
   }
+
   resolve() {
     this.#options.logger?.info('Resolving datasources within stub module context')
     return []
