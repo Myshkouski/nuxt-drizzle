@@ -1,5 +1,7 @@
 # Nuxt Drizzle
 
+> **⚠️ Under Heavy Development** - API may change until v1 release
+
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
