@@ -1,5 +1,5 @@
 {
-  "id": "5b059e13-e618-45cd-b31c-784f334e1222",
+  "id": "aa7b21e5-bac9-4b2d-9e85-e137cf2ec377",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -20,23 +20,29 @@
           "primaryKey": false,
           "notNull": true
         },
-        "content": {
-          "name": "content",
+        "description": {
+          "name": "description",
           "type": "text",
           "primaryKey": false,
           "notNull": true
         },
-        "author_id": {
-          "name": "author_id",
+        "image": {
+          "name": "image",
           "type": "text",
           "primaryKey": false,
           "notNull": true
         },
-        "created_at": {
-          "name": "created_at",
+        "date": {
+          "name": "date",
           "type": "timestamp with time zone",
           "primaryKey": false,
           "notNull": true
+        },
+        "authors": {
+          "name": "authors",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},

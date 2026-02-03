@@ -1,42 +1,40 @@
 <template>
-  <UContainer>
-    <div class="space-y-4">
-      <div>
-        <UHeader title="Authors" />
-        <UTable
-          :data="authors"
-          class="flex-1 border border-secondary rounded-xl"
-        />
-      </div>
-
-      <div>
-        <UHeader title="Posts" />
-        <UTable
-          :data="posts"
-          class="flex-1 border border-secondary rounded-xl"
-        />
-      </div>
-
-      <div>
-        <UHeader title="Comments" />
-        <UTable
-          :data="comments"
-          class="flex-1 border border-secondary rounded-xl"
-        />
-      </div>
-    </div>
+  <UContainer class="space-y-8 my-8">
+    <h1 class="text-2xl font-bold px-0.5">Blog Posts</h1>
+    <UBlogPosts :posts="posts" />
   </UContainer>
 </template>
 
 <script setup lang="ts">
+import type { BlogPostProps, UserProps } from '@nuxt/ui';
+
 definePageMeta({
-  title: 'Users & Content',
+  title: 'Blog Posts',
 })
 
 const { data: users } = useFetch('/api/v1/users')
-const { data: content } = useFetch('/api/v1/content')
+const authors = computed(() => {
+  if (!users.value) return []
+  return users.value.authors
+})
 
-const authors = computed(() => users.value?.authors)
-const posts = computed(() => content.value?.posts)
-const comments = computed(() => content.value?.comments)
+const { data: content } = useFetch('/api/v1/content')
+const posts = computed(() => {
+  if (!content.value) return []
+  return content.value.posts.map(post => {
+    return {
+      ...post,
+      authors: authors.value.filter(author => {
+        return post.authors?.includes(author.id)
+      }).map(author => {
+        return {
+          name: author.name,
+          avatar: {
+            text: author.name.split(' ').map(value => value.at(0)!).join('')
+          }
+        } satisfies UserProps
+      })
+    } satisfies BlogPostProps
+  })
+})
 </script>

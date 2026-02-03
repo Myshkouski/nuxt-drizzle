@@ -1,9 +1,10 @@
-import { pgTable, text, timestamp } from 'drizzle-orm/pg-core'
+import { pgTable, text, timestamp, type PgArray } from 'drizzle-orm/pg-core'
 
 export const posts = pgTable('posts', {
   id: text('id').primaryKey(),
   title: text('title').notNull(),
-  content: text('content').notNull(),
-  authorId: text('author_id').notNull(),
-  createdAt: timestamp('created_at', { withTimezone: true }).notNull(),
+  description: text('description').notNull(),
+  image: text('image').notNull(),
+  date: timestamp('date', { withTimezone: true }).notNull(),
+  authors: text('authors').array(),
 })
