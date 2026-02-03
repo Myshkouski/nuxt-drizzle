@@ -9,7 +9,7 @@ export default defineNitroPlugin((nitro) => {
       { id: '2', name: 'Jane Smith', email: 'jane@example.com' },
     ]).onConflictDoNothing()
 
-    consola.info('Seeding completed:', colorize("greenBright", 'users'))
+    consola.info('Seeding completed:', colorize('greenBright', 'users'))
 
     // Seed posts
     await datasources.content.db.insert(datasources.content.schema.posts).values([
@@ -23,6 +23,6 @@ export default defineNitroPlugin((nitro) => {
       { id: '2', postId: '1', authorId: '1', content: 'Thanks for the comment!', createdAt: new Date() },
     ]).onConflictDoNothing()
 
-    consola.info('Seeding completed:', colorize("greenBright", 'content'))
+    consola.info('Seeding completed:', colorize('greenBright', 'content'))
   })
 })

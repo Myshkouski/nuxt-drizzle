@@ -79,12 +79,12 @@ export function defineDrizzleDb<
 export async function useDrizzleMigrations<
   TName extends DrizzleDatasourceName,
 >(name: TName) {
-  const storage = useStorage<string>(`assets:drizzle:migrations:${ name }`)
+  const storage = useStorage<string>(`assets:drizzle:migrations:${name}`)
   const journal = await storage.getItem<MigrationJournal>(`meta/_journal.json`)
   if (!journal) {
     throw createError({
       fatal: true,
-      message: `Cannot find migration journal for '${ name }'`,
+      message: `Cannot find migration journal for '${name}'`,
       data: {
         datasource: name,
       },
@@ -125,16 +125,16 @@ async function* generate(journal: MigrationJournal, storage: Storage<string>) {
 }
 
 export interface Migration extends MigrationMeta {
-  idx: number;
-  filename: string;
+  idx: number
+  filename: string
 }
 
 interface MigrationJournal {
   entries: Iterable<{
-    idx: number;
-    version: string;
-    when: number;
+    idx: number
+    version: string
+    when: number
     tag: string
-    breakpoints: true;
+    breakpoints: true
   }>
 }

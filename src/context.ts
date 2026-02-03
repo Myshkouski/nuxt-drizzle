@@ -48,7 +48,7 @@ class ModuleContextImpl implements ModuleContext {
     const { logger, baseDir, configPattern, resolver, datasource: db } = this.#options
 
     if (!!forceUpdate || null == this.#datasources) {
-      logger?.info('Searching drizzle datasources in', colorize("blue", baseDir))
+      logger?.info('Searching drizzle datasources in', colorize('blue', baseDir))
 
       const drizzleConfigsResolvedPaths = await resolveFiles(baseDir, configPattern)
 

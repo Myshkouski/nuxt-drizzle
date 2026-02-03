@@ -1,4 +1,4 @@
-import { pgTable, text, timestamp, type PgArray } from 'drizzle-orm/pg-core'
+import { pgTable, text, timestamp } from 'drizzle-orm/pg-core'
 
 export const posts = pgTable('posts', {
   id: text('id').primaryKey(),

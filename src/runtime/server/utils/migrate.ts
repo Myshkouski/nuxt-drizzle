@@ -16,7 +16,7 @@ interface Db<TSession = any> {
 }
 
 export async function migrateDrizzle<
-  TDatasource extends NamedDrizzleDatasource<DrizzleDatasourceName>
+  TDatasource extends NamedDrizzleDatasource<DrizzleDatasourceName>,
 >(datasource: TDatasource, migrations: Iterable<Migration> | AsyncIterable<Migration>) {
   for await (const { filename, idx, ...migrationsMeta } of migrations) {
     try {

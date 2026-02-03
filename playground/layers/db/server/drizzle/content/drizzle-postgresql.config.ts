@@ -9,6 +9,6 @@ export default defineConfig({
   ],
   out: './postgresql/migrations',
   dbCredentials: {
-    url: process.env.DRIZZLE_CONTENT_POSTGRES_URL!
-  }
+    url: process.env.DRIZZLE_CONTENT_POSTGRES_URL!,
+  },
 }, __dirname)
