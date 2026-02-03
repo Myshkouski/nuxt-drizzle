@@ -1,4 +1,4 @@
-import { defineNuxtModule, createResolver, addServerImports, addServerTemplate, addTypeTemplate, addServerPlugin, useLogger, updateTemplates, addServerImportsDir } from '@nuxt/kit'
+import { defineNuxtModule, createResolver, addServerTemplate, addTypeTemplate, addServerPlugin, useLogger, updateTemplates, addServerImportsDir } from '@nuxt/kit'
 import type { HookResult } from 'nuxt/schema'
 import { createModuleContext, createStubModuleContext, type DatasourceInfo, type ModuleContext } from './context'
 import { runParallel } from './utils/async'
