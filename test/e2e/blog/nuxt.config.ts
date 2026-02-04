@@ -8,7 +8,7 @@ export default defineNuxtConfig({
         url: ':memory:',
       },
       users: {
-        url: ':memory:',
+        database: 'users',
       },
     },
   },
@@ -19,7 +19,7 @@ export default defineNuxtConfig({
         connector: 'sqlite',
       },
       users: {
-        connector: 'sqlite',
+        connector: 'pglite',
       },
     },
   },
