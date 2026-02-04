@@ -12,10 +12,10 @@ export default defineNuxtConfig({
   runtimeConfig: {
     drizzle: {
       content: {
-        url: ':memory:',
+        database: 'content',
       },
       users: {
-        url: ':memory:',
+        database: 'users',
       },
     },
   },
@@ -23,10 +23,10 @@ export default defineNuxtConfig({
   drizzle: {
     datasource: {
       content: {
-        connector: 'sqlite',
+        connector: 'pglite',
       },
       users: {
-        connector: 'sqlite',
+        connector: 'pglite',
       },
     },
   },

@@ -9,7 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@libsql/client": "^0.17.0",
+    "@electric-sql/pglite": "^0.3.15",
     "@nuxt/ui": "^4.4.0",
     "drizzle-orm": "^0.45.1",
     "nuxt": "^4.2.2",
