@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "@nuxt-drizzle/test-fixtures-nitro-api",
+  "type": "module",
+  "scripts": {
+    "prepare": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/ui": "^4.4.0",
+    "@iconify-json/lucide": "^1.2.87",
+    "nuxt": "^4.2.2",
+    "tailwindcss": "^4.1.18"
+  }
+}

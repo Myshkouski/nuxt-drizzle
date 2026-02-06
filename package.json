@@ -30,7 +30,7 @@
     "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
     "test": "nuxt-module-build build --stub && nuxt-module-build prepare && vitest run",
-    "test:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare test/e2e/blog",
+    "test:e2e": "nuxt-module-build build --stub && nuxt-module-build prepare && vitest run test/e2e/**",
     "test:watch": "vitest watch",
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },

@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "@nuxt-drizzle/test-fixtures-nitro-api",
+  "type": "module",
+  "main": "nuxt.config.ts",
+  "scripts": {
+    "prepare": "nuxt prepare"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.3.15",
+    "better-sqlite3": "^12.6.2",
+    "nuxt": "^4.2.2"
+  }
+}
