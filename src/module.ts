@@ -74,6 +74,7 @@ export default defineNuxtModule<ModuleOptions>().with({
       : createModuleContext({
           cwd: process.cwd(),
           baseDir,
+          connectorsDir: resolver.resolve('./runtime/server/connectors'),
           logger,
           resolver,
           configPattern: moduleOptions.configPattern,
