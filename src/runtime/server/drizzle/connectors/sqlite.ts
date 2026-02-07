@@ -1,9 +1,9 @@
 import sqlite3, { type Options as BetterSqlite3Options } from 'better-sqlite3'
 import { drizzle } from 'drizzle-orm/better-sqlite3'
-import { defineDrizzleDb } from '../../utils/drizzle'
+import { defineDrizzle } from '../../utils/db/defineDrizzle'
 import type { PrimitiveProps } from './types'
 
-export default defineDrizzleDb(<
+export default defineDrizzle(<
   TSchema extends Record<string, any>,
 >(
   config: ConnectorOptions,

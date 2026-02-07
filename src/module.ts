@@ -26,6 +26,11 @@ export interface ModuleOptions {
    * @deprecated Use 'nitro.database' instead.
    */
   datasource?: DatasourceOptions
+
+  /**
+   * Enable migrations composable and storage
+   */
+  migrations: boolean
 }
 
 const resolver = createResolver(import.meta.url)
@@ -45,14 +50,19 @@ export default defineNuxtModule<ModuleOptions>().with({
         '*/drizzle-*.config.*',
       ],
       datasource: {},
+      migrations: true,
     }
   },
 
   async setup(moduleOptions, nuxt) {
-    const runtimeServerUtilsDir = resolver.resolve('./runtime/server/utils')
+    const runtimeServerUtilsDir = resolver.resolve('./runtime/server/utils/db')
     addServerImportsDir(runtimeServerUtilsDir)
 
-    const runtimeServerPluginFilename = resolver.resolve('./runtime/server/plugins/drizzle')
+    if (true == moduleOptions.migrations) {
+      addServerImportsDir(resolver.resolve('./runtime/server/utils/migrations'))
+    }
+
+    const runtimeServerPluginFilename = resolver.resolve('./runtime/server/plugins/event-context')
     addServerPlugin(runtimeServerPluginFilename)
 
     const baseDir = await resolver.resolvePath(moduleOptions.baseDir, { type: 'dir' })
@@ -105,7 +115,7 @@ export default defineNuxtModule<ModuleOptions>().with({
         logger.info('Datasources updated.')
 
         await runParallel(
-          () => updateServerAssets(context, nuxt.options),
+          () => updateServerAssets(moduleOptions, context, nuxt.options),
           () => updateTemplates({
             filter(template) {
               return template.filename.startsWith(VIRTUAL_MODULE_ID_PREFIX)
@@ -116,7 +126,7 @@ export default defineNuxtModule<ModuleOptions>().with({
     })
 
     nuxt.hook('modules:done', async () => {
-      await updateServerAssets(context, nuxt.options)
+      await updateServerAssets(moduleOptions, context, nuxt.options)
     })
   },
 })

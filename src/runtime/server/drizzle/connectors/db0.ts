@@ -1,8 +1,8 @@
 import { useDatabase } from 'nitropack/runtime'
-import { defineDrizzleDb } from '../../utils/drizzle'
+import { defineDrizzle } from '../../utils/db/defineDrizzle'
 import { drizzle } from 'db0/integrations/drizzle'
 
-export default defineDrizzleDb(<
+export default defineDrizzle(<
   TSchema extends Record<string, any>,
 >() => {
   const db0 = useDatabase()
