@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
-  modules: ['my-module'],
+  modules: ['nuxt-drizzle'],
   devtools: { enabled: true },
   compatibilityDate: 'latest',
-  myModule: {},
+  drizzle: {},
 })
