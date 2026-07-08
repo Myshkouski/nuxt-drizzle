@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.2
+
+[compare changes](https://github.com/Myshkouski/nuxt-drizzle/compare/v0.1.1...v0.1.2)
+
+### 💅 Refactors
+
+- **fixtures:** Remove prepare script from nitro-api ([926663f](https://github.com/Myshkouski/nuxt-drizzle/commit/926663f))
+
+### ❤️ Contributors
+
+- Alexei Myshkouski ([@Myshkouski](https://github.com/Myshkouski))
+
 ## v0.1.1
 
 
