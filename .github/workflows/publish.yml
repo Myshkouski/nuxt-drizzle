@@ -32,6 +32,9 @@ jobs:
     - name: Install dependencies
       run: pnpm install
 
+    - name: Prepare packages
+      run: pnpm -w dev:prepare
+
     - name: Build module
       run: pnpm -w prepack
 
