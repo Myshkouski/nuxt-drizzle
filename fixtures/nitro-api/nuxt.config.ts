@@ -16,7 +16,7 @@ export default defineNuxtConfig({
       users: {
         connector: 'pglite',
       },
-      // @ts-expect-error
+      // @ts-expect-error unknown datasource type is intentionally omitted to test validation
       unknownDatasource: {},
     },
   },

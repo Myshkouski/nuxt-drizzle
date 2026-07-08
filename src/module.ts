@@ -56,7 +56,7 @@ export default defineNuxtModule<ModuleOptions>({
 
         Object.entries(declarations.module).forEach(([filename, contents]) => {
           addTypeTemplate({
-            // @ts-expect-error
+            // @ts-expect-error addTypeTemplate expects a string filename, but join returns a resolved path
             filename: join(typesDir, filename),
             getContents: async () => 'string' === typeof contents ? contents : await contents(),
           }, {
@@ -69,7 +69,7 @@ export default defineNuxtModule<ModuleOptions>({
           ...Object.values(declarations.virtual).flatMap(modules => Object.entries(modules)),
         ].forEach(([filename, contents]) => {
           addTypeTemplate({
-            // @ts-expect-error
+            // @ts-expect-error addTypeTemplate expects a string filename, but join returns a resolved path
             filename: join(typesDir, filename),
             getContents: async () => 'string' === typeof contents ? contents : await contents(),
           }, {

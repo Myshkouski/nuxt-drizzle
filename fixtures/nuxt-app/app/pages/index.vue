@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <UContainer class="space-y-8 my-8">
     <h1 class="text-2xl font-bold px-0.5">
