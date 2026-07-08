@@ -3,7 +3,7 @@
   "name": "nuxt-drizzle-nitro-api",
   "type": "module",
   "scripts": {
-    "prepare": "nuxt prepare"
+    "dev:prepare": "nuxt prepare"
   },
   "dependencies": {
     "@electric-sql/pglite": "catalog:",

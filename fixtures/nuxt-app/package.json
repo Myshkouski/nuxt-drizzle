@@ -2,6 +2,9 @@
   "private": true,
   "name": "nuxt-drizzle-nuxt-app",
   "type": "module",
+  "scripts": {
+    "dev:prepare": "nuxt prepare"
+  },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.102",
     "@nuxt/ui": "^4.6.1",

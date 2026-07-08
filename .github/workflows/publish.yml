@@ -32,6 +32,12 @@ jobs:
     - name: Install dependencies
       run: pnpm install
 
+    - name: Build module
+      run: pnpm -w prepack
+
+    - name: Prepare packages
+      run: pnpm -r dev:prepare
+
     - name: Lint code
       run: pnpm lint
 
