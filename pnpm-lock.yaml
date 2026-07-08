@@ -21,8 +21,8 @@ importers:
         specifier: ^4.4.8
         version: 4.4.8(magicast@0.5.3)
       nitro-drizzle:
-        specifier: ^0.2.13
-        version: 0.2.13(@electric-sql/pglite@0.5.4)(@libsql/client@0.17.4)(better-sqlite3@12.11.1)(drizzle-kit@0.31.10)(drizzle-orm@0.45.2(@electric-sql/pglite@0.5.4)(@libsql/client@0.17.4)(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1)(mysql2@3.22.5(@types/node@26.1.1))(postgres@3.4.9))(h3@2.0.1-rc.20(crossws@0.4.9(srvx@0.11.21)))(ioredis@5.11.1)(magicast@0.5.3)(mysql2@3.22.5(@types/node@26.1.1))(oxc-parser@0.133.0)(postgres@3.4.9)(srvx@0.11.21)(vite@7.3.6(@types/node@26.1.1)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.48.0)(tsx@4.23.0)(yaml@2.9.0))
+        specifier: ^0.2.15
+        version: 0.2.15(@electric-sql/pglite@0.5.4)(@libsql/client@0.17.4)(better-sqlite3@12.11.1)(drizzle-kit@0.31.10)(drizzle-orm@0.45.2(@electric-sql/pglite@0.5.4)(@libsql/client@0.17.4)(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1)(mysql2@3.22.5(@types/node@26.1.1))(postgres@3.4.9))(h3@2.0.1-rc.20(crossws@0.4.9(srvx@0.11.21)))(ioredis@5.11.1)(magicast@0.5.3)(mysql2@3.22.5(@types/node@26.1.1))(oxc-parser@0.133.0)(postgres@3.4.9)(srvx@0.11.21)(vite@7.3.6(@types/node@26.1.1)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.48.0)(tsx@4.23.0)(yaml@2.9.0))
       pathe:
         specifier: ^2.0.3
         version: 2.0.3
@@ -4776,8 +4776,8 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  nitro-drizzle@0.2.13:
-    resolution: {integrity: sha512-h16NPjX5A8Os5De2LbK/UclGn0rsCu3QLkjbctZGpnetth19UqOCwaXL88EL4H7Kg/I5xfX9jr2BIVXt32APow==}
+  nitro-drizzle@0.2.15:
+    resolution: {integrity: sha512-Q71GVo9GzrRjhB3OZP1HSfszxzzADLWf464e4Ddm1FtCqNEJQDzXWQtgzhs5q93DyKD5/SHcqAtBBucnZwrpoQ==}
     peerDependencies:
       '@cloudflare/workers-types': ^4.20260702.1
       '@electric-sql/pglite': ^0.5.4
@@ -11030,7 +11030,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  nitro-drizzle@0.2.13(@electric-sql/pglite@0.5.4)(@libsql/client@0.17.4)(better-sqlite3@12.11.1)(drizzle-kit@0.31.10)(drizzle-orm@0.45.2(@electric-sql/pglite@0.5.4)(@libsql/client@0.17.4)(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1)(mysql2@3.22.5(@types/node@26.1.1))(postgres@3.4.9))(h3@2.0.1-rc.20(crossws@0.4.9(srvx@0.11.21)))(ioredis@5.11.1)(magicast@0.5.3)(mysql2@3.22.5(@types/node@26.1.1))(oxc-parser@0.133.0)(postgres@3.4.9)(srvx@0.11.21)(vite@7.3.6(@types/node@26.1.1)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.48.0)(tsx@4.23.0)(yaml@2.9.0)):
+  nitro-drizzle@0.2.15(@electric-sql/pglite@0.5.4)(@libsql/client@0.17.4)(better-sqlite3@12.11.1)(drizzle-kit@0.31.10)(drizzle-orm@0.45.2(@electric-sql/pglite@0.5.4)(@libsql/client@0.17.4)(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1)(mysql2@3.22.5(@types/node@26.1.1))(postgres@3.4.9))(h3@2.0.1-rc.20(crossws@0.4.9(srvx@0.11.21)))(ioredis@5.11.1)(magicast@0.5.3)(mysql2@3.22.5(@types/node@26.1.1))(oxc-parser@0.133.0)(postgres@3.4.9)(srvx@0.11.21)(vite@7.3.6(@types/node@26.1.1)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.48.0)(tsx@4.23.0)(yaml@2.9.0)):
     dependencies:
       '@types/better-sqlite3': 7.6.13
       '@typescript/native-preview': 7.0.0-dev.20260606.1
