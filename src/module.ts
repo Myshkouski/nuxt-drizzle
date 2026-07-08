@@ -1,8 +1,7 @@
 import { defineNuxtModule, createResolver, resolveModule, resolveAlias, logger, addServerPlugin, addServerTemplate, addTypeTemplate } from '@nuxt/kit'
 import { createContext, type ContextOptions } from 'nitro-drizzle/context'
-import { type ModuleOptions, addInlineExternals, createDefaultOptions, updateServerAssets } from 'nitro-drizzle/module'
+import { type ModuleOptions, addInlineExternals, updateServerAssets, defineModuleConfig } from 'nitro-drizzle/module'
 import type { MaybePromise, VirtualModules } from 'nitro-drizzle/shared'
-import type { NuxtTypeTemplate } from 'nuxt/schema'
 import { join, resolve } from 'pathe'
 
 export type { ModuleOptions }
@@ -12,13 +11,13 @@ export default defineNuxtModule<ModuleOptions>({
     name: 'nuxt-drizzle',
     configKey: 'drizzle',
   },
-  defaults: () => createDefaultOptions(),
   async setup(moduleOptions, nuxt) {
+    const moduleConfig = defineModuleConfig(moduleOptions)
     const resolver = createResolver(import.meta.url)
 
     const baseDir = resolve(
       nuxt.options.srcDir,
-      resolveAlias(moduleOptions.baseDir, nuxt.options.alias),
+      resolveAlias(moduleConfig.baseDir, nuxt.options.alias),
     )
 
     const contextOptions: ContextOptions = {
@@ -26,9 +25,9 @@ export default defineNuxtModule<ModuleOptions>({
       resolver,
       baseDir,
       logger,
-      configPattern: moduleOptions.configPattern,
-      datasource: { ...moduleOptions.datasources },
-      migrations: moduleOptions.migrations || void 0,
+      configPattern: moduleConfig.configPattern,
+      datasource: { ...moduleConfig.datasources },
+      migrations: moduleConfig.migrations || void 0,
 
       tasks: nuxt.options.nitro.experimental?.tasks
         ? (tasks) => {
