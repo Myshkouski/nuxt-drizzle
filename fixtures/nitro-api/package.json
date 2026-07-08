@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "nuxt-drizzle-nitro-api",
+  "type": "module",
+  "scripts": {
+    "prepare": "nuxt prepare"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "catalog:",
+    "better-sqlite3": "catalog:",
+    "consola": "^3.4.2",
+    "drizzle-orm": "^0.45.2",
+    "nuxt-drizzle": "workspace:^",
+    "nuxt": "^4.4.2"
+  }
+}

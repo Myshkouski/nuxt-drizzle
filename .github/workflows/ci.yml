@@ -17,15 +17,16 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: lts/*
+          cache: pnpm
 
-      - run: npm i -g --force corepack@latest && corepack enable
+      - uses: pnpm/action-setup@v6
 
       - name: Install dependencies
-        run: npx nypm@latest i
+        run: pnpm i
 
       - name: Lint
-        run: npm run lint
+        run: pnpm run lint
 
   test:
     runs-on: ubuntu-latest
@@ -35,15 +36,16 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: lts/*
+          cache: pnpm
 
-      - run: npm i -g --force corepack@latest && corepack enable
+      - uses: pnpm/action-setup@v6
 
       - name: Install dependencies
-        run: npx nypm@latest i
+        run: pnpm i
 
       - name: Playground prepare
-        run: npm run dev:prepare
+        run: pnpm run dev:prepare
 
       - name: Test
-        run: npm run test
+        run: pnpm run test

@@ -7,25 +7,23 @@ Find and replace all on all files (CMD+SHIFT+F):
 - Description: My new Nuxt module
 -->
 
-# My Module
+# nuxt-drizzle
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-My new Nuxt module for doing amazing things.
+A [Nuxt](https://nuxt.com) module that brings [Drizzle ORM](https://orm.drizzle.team) to the Nuxt server layer, built on top of [`nitro-drizzle`](https://www.npmjs.com/package/nitro-drizzle).
 
-- [✨ &nbsp;Release Notes](/CHANGELOG.md)
-<!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/nuxt-drizzle?file=playground%2Fapp.vue) -->
-<!-- - [📖 &nbsp;Documentation](https://example.com) -->
+`nuxt-drizzle` is a thin Nuxt integration layer around [`nitro-drizzle`](https://www.npmjs.com/package/nitro-drizzle). It wires Drizzle into Nitro's server runtime — handling config discovery, migration execution, type generation, server virtual modules, and asset bundling — so you can work with one or many Drizzle datasources directly inside your Nuxt server routes and plugins.
 
-## Features
-
-<!-- Highlight some of the features your module provide here -->
-- ⛰ &nbsp;Foo
-- 🚠 &nbsp;Bar
-- 🌲 &nbsp;Baz
+- 🧩 First-class [`nitro-drizzle`](https://www.npmjs.com/package/nitro-drizzle) integration for Nuxt
+- 🗄️ Multiple datasources (e.g. `sqlite`, `postgresql`, `mysql`) in a single app
+- 🚀 Automatic migrations on server init (`migrateOnInit`)
+- 🔌 Configurable connectors and drivers (e.g. `pglite`, `sqlite`)
+- 🧠 Typed `useDatasource()` access from server routes and Nitro plugins
+- 🛠️ Zero-config type templates and virtual modules generated on the fly
 
 ## Quick Setup
 
@@ -35,8 +33,63 @@ Install the module to your Nuxt application with one command:
 npx nuxt module add nuxt-drizzle
 ```
 
-That's it! You can now use My Module in your Nuxt app ✨
+Then register it and configure your datasources in `nuxt.config.ts`:
 
+```ts
+export default defineNuxtConfig({
+  modules: [
+    'nuxt-drizzle',
+  ],
+  drizzle: {
+    baseDir: './server/drizzle',
+    migrations: {
+      migrateOnInit: true,
+    },
+    datasources: {
+      users: {
+        connector: 'pglite',
+      },
+      content: {
+        connector: 'sqlite',
+      },
+    },
+  },
+})
+```
+
+Define a datasource with `defineConfig` from `nitro-drizzle/config`:
+
+```ts
+// server/drizzle/users/drizzle-sqlite.config.ts
+import { defineConfig } from 'nitro-drizzle/config'
+
+export default defineConfig({
+  strict: true,
+  dialect: 'sqlite',
+  schema: ['./sqlite/schema/authors.ts'],
+  out: './sqlite/migrations',
+}, import.meta.url)
+```
+
+Use it from a server route via `nitro-drizzle/runtime`:
+
+```ts
+// server/api/v1/users.get.ts
+import { useDatasource } from 'nitro-drizzle/runtime'
+
+export default defineEventHandler(async (event) => {
+  await event.context.drizzle.waitReady()
+
+  const { database, schema } = await useDatasource('users')
+  const authors = await database.select().from(schema.authors).limit(10)
+
+  return { authors }
+})
+```
+
+That's it! You can now use `nuxt-drizzle` in your Nuxt app ✨
+
+> Under the hood, all database wiring, migrations, and runtime helpers come from [`nitro-drizzle`](https://www.npmjs.com/package/nitro-drizzle). See its docs for the full configuration reference (`nitro-drizzle/config`, `nitro-drizzle/runtime`, `nitro-drizzle/utils`).
 
 ## Contribution
 
@@ -66,7 +119,6 @@ That's it! You can now use My Module in your Nuxt app ✨
   # Release new version
   npm run release
   ```
-
 </details>
 
 
