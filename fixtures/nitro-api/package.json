@@ -2,6 +2,9 @@
   "private": true,
   "name": "nuxt-drizzle-nitro-api",
   "type": "module",
+  "scripts": {
+    "prepare": "nuxt prepare"
+  },
   "dependencies": {
     "@electric-sql/pglite": "catalog:",
     "better-sqlite3": "catalog:",
