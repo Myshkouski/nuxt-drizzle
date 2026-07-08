@@ -1,8 +1,7 @@
-import { defineNuxtModule, createResolver, resolveAlias, logger, addServerPlugin, addServerTemplate, addTypeTemplate } from '@nuxt/kit'
+import { defineNuxtModule, createResolver, resolveModule, resolveAlias, logger, addServerPlugin, addServerTemplate, addTypeTemplate } from '@nuxt/kit'
 import { createContext, type ContextOptions } from 'nitro-drizzle/context'
 import { type ModuleOptions, addInlineExternals, createDefaultOptions, updateServerAssets } from 'nitro-drizzle/module'
 import type { MaybePromise, VirtualModules } from 'nitro-drizzle/shared'
-import { fileURLToPath } from 'node:url'
 import type { NuxtTypeTemplate } from 'nuxt/schema'
 import { join, resolve } from 'pathe'
 
@@ -40,7 +39,7 @@ export default defineNuxtModule<ModuleOptions>({
 
       plugins(plugins) {
         plugins.forEach((plugin) => {
-          addServerPlugin(fileURLToPath(import.meta.resolve(plugin)))
+          addServerPlugin(resolveModule(plugin))
         })
       },
 
