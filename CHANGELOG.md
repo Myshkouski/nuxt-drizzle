@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.1.3
+
+[compare changes](https://github.com/Myshkouski/nuxt-drizzle/compare/v0.1.2...v0.1.3)
+
+### 💅 Refactors
+
+- **fixtures:** Remove prepare script from nitro-api" ([c4b21af](https://github.com/Myshkouski/nuxt-drizzle/commit/c4b21af))
+- Clarify ts-expect-error comments and suppress vue lint rule ([18e50c9](https://github.com/Myshkouski/nuxt-drizzle/commit/18e50c9))
+
+### 🤖 CI
+
+- **publish:** Build module and run dev:prepare in workflow ([e3d09b6](https://github.com/Myshkouski/nuxt-drizzle/commit/e3d09b6))
+
+### ❤️ Contributors
+
+- Alexei Myshkouski ([@Myshkouski](https://github.com/Myshkouski))
+
 ## v0.1.2
 
 [compare changes](https://github.com/Myshkouski/nuxt-drizzle/compare/v0.1.1...v0.1.2)
