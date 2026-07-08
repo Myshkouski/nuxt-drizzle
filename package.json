@@ -1,6 +1,6 @@
 {
   "name": "nuxt-drizzle",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Nuxt module that integrates Drizzle ORM into the Nuxt server layer.",
   "repository": {
     "type": "git",
