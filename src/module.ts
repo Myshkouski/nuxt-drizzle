@@ -21,12 +21,13 @@ export default defineNuxtModule<ModuleOptions>({
     )
 
     const contextOptions: ContextOptions = {
+      legacy: true,
       cwd: process.cwd(),
       resolver,
       baseDir,
       logger,
       configPattern: moduleConfig.configPattern,
-      datasource: { ...moduleConfig.datasources },
+      datasources: { ...moduleConfig.datasources },
       migrations: moduleConfig.migrations || void 0,
 
       tasks: nuxt.options.nitro.experimental?.tasks
@@ -84,7 +85,7 @@ export default defineNuxtModule<ModuleOptions>({
         })
       },
 
-      inlineExternals(modules) {
+      externals(modules) {
         nuxt.hook('nitro:init', (nitro) => {
           addInlineExternals(nitro.options, modules)
         })
