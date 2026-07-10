@@ -37,54 +37,55 @@ Then register it and configure your datasources in `nuxt.config.ts`:
 
 ```ts
 export default defineNuxtConfig({
-  modules: [
-    'nuxt-drizzle',
-  ],
+  modules: ["nuxt-drizzle"],
   drizzle: {
-    baseDir: './server/drizzle',
+    baseDir: "./server/drizzle",
     migrations: {
       migrateOnInit: true,
     },
     datasources: {
       users: {
-        connector: 'pglite',
+        connector: "pglite",
       },
       content: {
-        connector: 'sqlite',
+        connector: "sqlite",
       },
     },
   },
-})
+});
 ```
 
 Define a datasource with `defineConfig` from `nitro-drizzle/config`:
 
 ```ts
 // server/drizzle/users/drizzle-sqlite.config.ts
-import { defineConfig } from 'nitro-drizzle/config'
+import { defineConfig } from "nitro-drizzle/config";
 
-export default defineConfig({
-  strict: true,
-  dialect: 'sqlite',
-  schema: ['./sqlite/schema/authors.ts'],
-  out: './sqlite/migrations',
-}, import.meta.url)
+export default defineConfig(
+  {
+    strict: true,
+    dialect: "sqlite",
+    schema: ["./sqlite/schema/authors.ts"],
+    out: "./sqlite/migrations",
+  },
+  import.meta.url,
+);
 ```
 
 Use it from a server route via `nitro-drizzle/runtime`:
 
 ```ts
 // server/api/v1/users.get.ts
-import { useDatasource } from 'nitro-drizzle/runtime'
+import { useDatasource } from "nitro-drizzle/runtime";
 
 export default defineEventHandler(async (event) => {
-  await event.context.drizzle.waitReady()
+  await event.context.drizzle.waitReady();
 
-  const { database, schema } = await useDatasource('users')
-  const authors = await database.select().from(schema.authors).limit(10)
+  const { database, schema } = await useDatasource("users");
+  const authors = await database.select().from(schema.authors).limit(10);
 
-  return { authors }
-})
+  return { authors };
+});
 ```
 
 That's it! You can now use `nuxt-drizzle` in your Nuxt app ✨
@@ -95,42 +96,40 @@ That's it! You can now use `nuxt-drizzle` in your Nuxt app ✨
 
 <details>
   <summary>Local development</summary>
-  
-  ```bash
-  # Install dependencies
-  npm install
-  
-  # Generate type stubs
-  npm run dev:prepare
-  
-  # Develop with the playground
-  npm run dev
-  
-  # Build the playground
-  npm run dev:build
-  
-  # Run ESLint
-  npm run lint
-  
-  # Run Vitest
-  npm run test
-  npm run test:watch
-  
-  # Release new version
-  npm run release
-  ```
+
+```bash
+# Install dependencies
+npm install
+
+# Generate type stubs
+npm run dev:prepare
+
+# Develop with the playground
+npm run dev
+
+# Build the playground
+npm run dev:build
+
+# Run ESLint
+npm run lint
+
+# Run Vitest
+npm run test
+npm run test:watch
+
+# Release new version
+npm run release
+```
+
 </details>
 
-
 <!-- Badges -->
+
 [npm-version-src]: https://img.shields.io/npm/v/nuxt-drizzle/latest.svg?style=flat&colorA=020420&colorB=00DC82
 [npm-version-href]: https://npmjs.com/package/nuxt-drizzle
-
 [npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-drizzle.svg?style=flat&colorA=020420&colorB=00DC82
 [npm-downloads-href]: https://npm.chart.dev/nuxt-drizzle
-
 [license-src]: https://img.shields.io/npm/l/nuxt-drizzle.svg?style=flat&colorA=020420&colorB=00DC82
 [license-href]: https://npmjs.com/package/nuxt-drizzle
-
 [nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt
 [nuxt-href]: https://nuxt.com

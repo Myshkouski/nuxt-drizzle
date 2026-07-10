@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  extends: ['../fixtures/nuxt-app'],
+  extends: ["../fixtures/nuxt-app"],
   devtools: { enabled: true },
-  compatibilityDate: 'latest',
-})
+  compatibilityDate: "latest",
+});

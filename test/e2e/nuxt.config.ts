@@ -1,26 +1,24 @@
 export default defineNuxtConfig({
-  extends: [
-    '../../fixtures/nuxt-app',
-  ],
+  extends: ["../../fixtures/nuxt-app"],
   runtimeConfig: {
     drizzle: {
       content: {
-        url: ':memory:',
+        url: ":memory:",
       },
       users: {
-        database: 'users',
+        database: "users",
       },
     },
   },
-  compatibilityDate: 'latest',
+  compatibilityDate: "latest",
   drizzle: {
     datasource: {
       content: {
-        connector: 'sqlite',
+        connector: "sqlite",
       },
       users: {
-        connector: 'pglite',
+        connector: "pglite",
       },
     },
   },
-})
+});

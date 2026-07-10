@@ -2,32 +2,32 @@
   "name": "nuxt-drizzle",
   "version": "0.1.3",
   "description": "Nuxt module that integrates Drizzle ORM into the Nuxt server layer.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Myshkouski/nuxt-drizzle.git"
-  },
-  "homepage": "https://github.com/Myshkouski/nuxt-drizzle#readme",
-  "bugs": {
-    "url": "https://github.com/Myshkouski/nuxt-drizzle/issues"
-  },
   "keywords": [
-    "nuxt",
-    "nuxt-module",
+    "database",
     "drizzle",
     "drizzle-orm",
     "nitro",
     "nitro-drizzle",
-    "database",
+    "nuxt",
+    "nuxt-module",
     "orm"
   ],
-  "license": "MIT",
-  "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/types.d.mts",
-      "import": "./dist/module.mjs"
-    }
+  "homepage": "https://github.com/Myshkouski/nuxt-drizzle#readme",
+  "bugs": {
+    "url": "https://github.com/Myshkouski/nuxt-drizzle/issues"
   },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Myshkouski/nuxt-drizzle.git"
+  },
+  "workspaces": [
+    "playground"
+  ],
+  "files": [
+    "dist"
+  ],
+  "type": "module",
   "main": "./dist/module.mjs",
   "typesVersions": {
     "*": {
@@ -36,12 +36,12 @@
       ]
     }
   },
-  "files": [
-    "dist"
-  ],
-  "workspaces": [
-    "playground"
-  ],
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
+    }
+  },
   "scripts": {
     "prepack": "nuxt-module-build build",
     "dev": "npm run dev:prepare && nuxt dev playground",
@@ -50,13 +50,14 @@
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
     "release": "changelogen --release --push",
-    "lint": "eslint .",
+    "lint": "oxlint",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },
   "dependencies": {
     "@nuxt/kit": "^4.4.8",
+    "lefthook": "^2.1.10",
     "nitro-drizzle": "0.3.0-beta.2",
     "pathe": "^2.0.3"
   },
@@ -68,9 +69,9 @@
     "@nuxt/test-utils": "^4.0.3",
     "@types/node": "latest",
     "changelogen": "^0.6.2",
-    "eslint": "^10.6.0",
     "nuxt": "^4.4.8",
     "oxfmt": "^0.58.0",
+    "oxlint": "^1.73.0",
     "typescript": "^6.0.3",
     "vitest": "^4.1.10",
     "vue-tsc": "^3.3.7"

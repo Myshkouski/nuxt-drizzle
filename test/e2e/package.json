@@ -1,6 +1,6 @@
 {
-  "private": true,
   "name": "nuxt-drizzle-test-e2e",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev:prepare": "nuxt prepare"

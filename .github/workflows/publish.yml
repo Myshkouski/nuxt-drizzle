@@ -14,38 +14,38 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v6
-      with:
-        fetch-depth: 0
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
-    - name: Setup pnpm
-      uses: pnpm/action-setup@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v6
-      with:
-        node-version: lts/*
-        registry-url: https://registry.npmjs.org
-        cache: pnpm
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          registry-url: https://registry.npmjs.org
+          cache: pnpm
 
-    - name: Install dependencies
-      run: pnpm install
+      - name: Install dependencies
+        run: pnpm install
 
-    - name: Prepare packages
-      run: pnpm -w dev:prepare
+      - name: Prepare packages
+        run: pnpm -w dev:prepare
 
-    - name: Prepare packages
-      run: pnpm -r dev:prepare
+      - name: Prepare packages
+        run: pnpm -r dev:prepare
 
-    - name: Lint code
-      run: pnpm lint
+      - name: Lint code
+        run: pnpm lint
 
-    - name: Run tests
-      run: pnpm test
+      - name: Run tests
+        run: pnpm test
 
-    - name: Build module
-      run: pnpm -w prepack
+      - name: Build module
+        run: pnpm -w prepack
 
-    - name: Publish
-      run: pnpm publish --no-git-checks --provenance --tag latest
+      - name: Publish
+        run: pnpm publish --no-git-checks --provenance --tag latest

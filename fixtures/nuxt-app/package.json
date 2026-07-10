@@ -1,6 +1,6 @@
 {
-  "private": true,
   "name": "nuxt-drizzle-nuxt-app",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev:prepare": "nuxt prepare"
