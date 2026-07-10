@@ -35,9 +35,6 @@ jobs:
     - name: Prepare packages
       run: pnpm -w dev:prepare
 
-    - name: Build module
-      run: pnpm -w prepack
-
     - name: Prepare packages
       run: pnpm -r dev:prepare
 
@@ -46,6 +43,9 @@ jobs:
 
     - name: Run tests
       run: pnpm test
+
+    - name: Build module
+      run: pnpm -w prepack
 
     - name: Publish
       run: pnpm publish --no-git-checks
